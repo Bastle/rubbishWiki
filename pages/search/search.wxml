@@ -1,0 +1,84 @@
+<!--pages/search/search.wxml-->
+<view class="search-page">
+  <view class="title-wrap" wx:if="{{!isShowResult}}">
+    <view class="search-title">
+        让我看看，
+      </view>
+      <view class="search-title">
+        你到底是什么垃圾?
+      </view>
+  </view>
+  <view class="search-part">
+    <view class="search-box-wrap">
+      <view class="cancel-icon-wrap" wx:if="{{isShowCancelIcon}}" bindtap="deleteText">
+        <image class="cancel-icon" src="../../images/icon/cancel.svg"></image>
+      </view>
+      <view class="search-icon-wrap">
+        <image class="search-icon" src="../../images/icon/search.svg"></image>
+      </view>
+      <input class="search-box" type="text" focus="{{focus}}" placeholder='找东西...' bindinput="changeValue" value='{{inputValue}}' confirm-type='search' bindconfirm='search'/>
+    </view>
+  </view>
+
+  <view class="tag-list-wrap" wx:if="{{!isShowResult}}">
+    <view class="tag-title">
+      你也可以探索
+    </view>
+    <scroll-view scroll-x="true">
+      <view class="tag-list">
+        <block wx:for="{{tagList}}" wx:key="{{index}}">
+          <view class="tag-item" data-tag="{{item.name}}" bindtap='search'>
+            <image class="tag-img" src="{{item.imgUrl}}"></image>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+  </view>
+  <!-- <view class="result-list-wrap" wx:else >
+    <view class="result-target">寻找：{{searchTarget}}</view>
+    <view class="result-number">{{resultNumber}}个相关物品</view>
+    <view class="result-list-padding" wx:if="{{resultNumber !== 0}}">
+      <block wx:for="{{resultList}}" wx:key="{{index}}">
+        <view class="result-list">
+          <block wx:for="{{item}}" wx:key="{{index}}">
+            <view class="rabish-item" bindtap="goToDetail" data-name="{{item.name}}" data-link="{{item.link}}">
+              <view class="item-img-wrap" style="background-color:{{bgConfig[item.type]}}">
+                <image lazy-load="{{true}}" class="item-img" src="{{item.imgUrl}}" mode="aspectFit"></image>
+              </view>
+              <view class="item-bottom">
+                <view class="item-name-wrap">
+                  <view class="item-name">
+                    <image wx:if="{{iconConfig[item.type]}}" class="item-type-icon" src="{{'../../images/icon/'+iconConfig[item.type]}}"></image>
+                    <text>{{item.name}}</text>
+                  </view>
+                  <button class="share-btn" catchtap="blankFun" open-type="share" hover-stop-propagation='true' data-item="{{item}}">
+                    <image class="item-share" src="../../images/icon/share.svg"></image>
+                  </button>
+                </view>
+                <view>
+                  <view class="item-type" style="background-color:{{bgConfig[item.type]}}">
+                    {{item.type}}
+                  </view>
+                </view>
+                <view class="material-wrap">
+                  <block wx:for="{{item.material}}" wx:key="{{index}}">
+                    <text class="item-material">{{item}}</text>
+                  </block>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+
+    <block wx:if="{{resultNumber === 0}}">
+      <view class="empty-page">
+        <view class="empty-img-wrap">
+          <image class="empty-img" src="../../images/icon/none.png"></image>
+        </view>
+        <navigator open-type="navigateBack" class="empty-btn">返回首页</navigator>
+      </view>
+    </block>
+  </view> -->
+</view>

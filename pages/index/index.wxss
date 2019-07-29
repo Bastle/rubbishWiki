@@ -1,0 +1,210 @@
+/**index.wxss**/
+page{
+  height:100%;
+  padding-top: 260rpx;
+}
+.page-container{
+  height:100%;
+}
+.search-entry{
+  position: fixed;
+  width: 112rpx;
+  height: 112rpx;
+  bottom: 32rpx;
+  right: 32rpx;
+  border-radius:50%;
+  z-index: 1100;
+  box-shadow: 0 12rpx 24rpx 0 rgba(0,0,0,.2);
+}
+.search-entry-img{
+  width: 100%;
+  height: 100%;
+}
+
+.page-top{
+  width:100%;
+  position: fixed;
+  top:0;
+  z-index:1000;
+  background-color:#fff;
+  border-bottom: 1rpx solid #dfdfdf;
+}
+.page-title{
+  font-size: 48rpx;
+  color: #37352F;
+  padding: 40rpx 40rpx 14rpx;
+  font-weight: bold;
+}
+.navi{
+  height: 140rpx;
+}
+.navi-wrap{
+  height: 100%;
+}
+.navi-box{
+  height: 100%;
+  white-space: nowrap;
+  margin: 0rpx;
+  padding: 0rpx;
+}
+.navi-content{
+  height:100%;
+  display: inline-block;
+  vertical-align:top;
+  padding: 0 20rpx;
+  color: #353535;
+  font-size: 40rpx;
+  position: relative;
+}
+.navi-name{
+  height: 100%;
+  font-size: 28rpx;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  color: #999;
+}
+.navi-name.active{
+  color: #37352F;
+}
+/* .navi-name::before{
+  content: "";
+  transition: all .5s ease 0;
+  width:0;
+} */
+.navi-name.active::before{
+  content: "";
+  width: auto;
+  height: 5rpx;
+  background-color: #353535;
+  position: absolute;
+  bottom:0;
+  left:0;
+  right:0;
+}
+.navi-name .navi-icon{
+  width: 34rpx;
+  height: 34rpx;
+  margin-right: 8rpx;
+}
+
+
+.page-swiper{
+  height:100%;
+}
+.content{
+  height: 100%;
+  box-sizing: border-box;
+}
+.content .type-num{
+  font-size: 28rpx;
+  color: #A1A1A1;
+  display: block;
+  margin-top: 40rpx;
+  font-weigth: bold;
+}
+.content .bigger-num{
+  font-size: 72rpx;
+  color: #37352F;
+  font-weight: bolder;
+  display:inline;
+  margin-right:20rpx;
+  font-family: "SanFranciscoDisplay-Bold";
+}
+.content .type-description{
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+  color: #999999;
+  line-height: 56rpx;
+  display: block;
+  padding: 20rpx 92rpx 20rpx 0;
+  font-weight: bold;
+}
+.content .item-list{
+  padding: 0 46rpx;
+  height:100%;
+}
+.content .item-list .rabish-list-wrap{
+  padding-bottom:200rpx;
+}
+.content .rabish-item{
+  width: 658rpx;
+  height: 564rpx;
+  background: #FFFFFF;
+  border: 2rpx solid #DDDEDD;
+  box-shadow: 0 3rpx 6rpx 0 rgba(0,0,0,0.10);
+  border-radius: 16rpx;
+  overflow:hidden;
+  margin-bottom: 32rpx;
+}
+.content .item-bottom{
+  padding: 16rpx 20rpx 0;
+}
+.content .item-img-wrap{
+  position:relative;
+  width:100%;
+  height:370rpx;
+}
+.content .item-img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.content .item-name-wrap{
+  height: 44rpx;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: center;
+  margin-bottom: 10rpx;
+}
+.content .item-name-wrap .share-btn{
+  width: 118rpx;
+  height: 48rpx;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+.content .item-name-wrap .share-btn .item-share{
+  width: 118rpx;
+  height: 48rpx;
+}
+.content .item-type-icon{
+  width:44rpx;
+  height:44rpx;
+  margin-right: 12rpx;
+}
+.content .item-name{
+  display: flex;
+  line-height:44rpx;
+}
+.content .item-name text{
+  font-size: 28rpx;
+  color: #37352F;
+  font-weight: bold;
+}
+
+.content .item-type{
+  display: inline;
+  padding: 2rpx 16rpx;
+  font-size: 24rpx;
+  color: #37352F;
+  border-radius: 4rpx;
+  font-weight:bold;
+}
+.content .material-wrap{
+  margin-top: 10rpx;
+}
+.content .item-material{
+  font-size: 24rpx;
+  padding: 2rpx 16rpx;
+  color: #37352F;
+  font-weight: bold;
+  background-color: #EBEBEB;
+  margin-right: 8rpx;
+  border-radius: 4rpx;
+}

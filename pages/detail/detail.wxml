@@ -1,0 +1,66 @@
+<!--pages/detail/detail.wxml-->
+<view class="detail-page">
+  <view class="detail-header">
+    <view class="detail-img-wrap" style="background-color: {{bgConfig[detail.type]}}">
+      <image class="detail-img" src="{{detail.imgUrl}}" mode="aspectFit"></image>
+    </view>
+    <image  wx:if="{{iconConfig[detail.type]}}" class="detail-icon" src="../../images/icon/{{iconConfig[detail.type]}}"></image>
+  </view>
+  <view class="detail-content">
+    <button class="share-btn" catchtap="blankFun" open-type="share" hover-stop-propagation='true' data-item="{{item}}">
+      <image class="item-share" src="../../images/icon/share.svg"></image>
+    </button>
+    <view class="detail-name">{{detail.name}}</view>
+    <view class="detail-type">
+      <view class="detail-type-text">分类</view>
+      <view class="detail-type-content" style="background-color:{{bgConfig[detail.type]}}">{{detail.type}}</view>
+    </view>
+    <view class="detail-material">
+      <text class="detail-material-text">属性</text>
+      <block wx:for="{{detail.material}}" wx:key="{{index}}">
+        <view class="detail-material-content">{{item}}</view>
+      </block>
+    </view>
+    <view class="detail-description">
+      <view class="title description-title">{{detail.type}}</view>
+      <text class="content description-content">{{descriptionConfig[detail.type]}}</text>
+    </view>
+    <view class="detail-solution">
+      <view class="title solution-title">如何处理？</view>
+      <text class="content solution-content">{{detail.solution}}</text>
+    </view>
+    <view class="link-content" wx:if="{{linkList.length !== 0}}">
+      <view class="title link-title">相似物体...</view>
+      <scroll-view scroll-x="true">
+        <view class="link-list">
+          <block wx:for="{{linkList}}" wx:key="{{index}}">
+            <view class="link-item" data-name="{{item.name}}" data-link="{{item.link}}" bindtap="goToLink">
+              <view class="link-item-img-wrap" style="background-color: {{bgConfig[item.type]}}">
+                <image class="link-item-img" src="{{item.imgUrl}}" mode="aspectFit"></image>
+              </view>
+              <view class="link-item-footer">
+                <view class="item-name">
+                  <image wx:if="{{iconConfig[item.type]}}" class="item-type-icon" src="{{'../../images/icon/'+iconConfig[item.type]}}" ></image>
+                  <text>{{item.name}}</text>
+                </view>
+                <view>
+                  <view class="item-type" style="background-color:{{bgConfig[item.type]}}">
+                    {{item.type}}
+                  </view>
+                </view>
+                <view class="material-wrap">
+                  <block wx:for="{{item.material}}" wx:key="{{index}}">
+                    <text class="item-material">{{item}}</text>
+                  </block>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="copyright-wrap" wx:if="{{detail.copyright}}">
+
+    </view>
+  </view>
+</view>

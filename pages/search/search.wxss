@@ -1,0 +1,232 @@
+/* pages/search/search.wxss */
+
+.title-wrap{
+  padding: 120rpx 0 20rpx 48rpx
+}
+.search-title{
+  font-size: 48rpx;
+  color: #37352F;
+  line-height: 72rpx;
+  font-weight: bold;
+}
+
+.search-part{
+  margin-top: 48rpx;
+  padding-left:48rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.result-page .search-box-wrap{
+  width: 550rpx;
+}
+.search-box-wrap{
+  width: 654rpx;
+  height: 111rpx;
+  position:relative;
+}
+.cancel-btn{
+  display:none;
+}
+.result-page .cancel-btn{
+  width: 152rpx;
+  text-align: center;
+  display: block;
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  color: #999999;
+  line-height: 111rpx;
+}
+.search-icon-wrap{
+  position: absolute;
+  width: 43rpx;
+  height: 43rpx;
+  top: 50%;
+  left: 40rpx;
+  transform: translateY(-50%);
+}
+.search-icon{
+  width: 100%;
+  height: 100%;
+}
+
+.cancel-icon-wrap{
+  position:absolute;
+  width:81rpx;
+  height:81rpx;
+  right:0;
+  top:15rpx;
+}
+.cancel-icon{
+  width: 32rpx;
+  height: 32rpx;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.search-box{
+  width:100%;
+  height:100%;
+  background: #F6F6F5;
+  border: 2rpx solid #DDDEDD;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  padding: 0 81rpx 0 110rpx;
+  box-sizing: border-box;
+  background-position: 40rpx center;
+  background-repeat: no-repeat;
+  background-size: 42rpx 42rpx;
+}
+
+
+
+.tag-list-wrap{
+  margin-top: 104rpx;
+}
+.tag-list-wrap .tag-title{
+  margin-bottom: 32rpx;
+  padding-left: 48rpx;
+  font-family: PingFangSC-Semibold;
+  font-size: 40rpx;
+  color: #37352F;
+  line-height: 72rpx;
+  font-weight: bold;
+}
+
+.tag-list-wrap .tag-list{
+  white-space: nowrap;
+}
+.tag-list-wrap .tag-list .tag-item{
+  width: 620rpx;
+  height: 243rpx;
+  margin-left: 48rpx;
+  margin-right: -16rpx;
+  display: inline-block;
+}
+.tag-list-wrap .tag-list .tag-item image{
+  width: 100%;
+  height: 100%;
+}
+
+.result-list-wrap{
+  padding: 72rpx 0 0 48rpx;
+}
+.result-target{
+  font-family: PingFangSC-Semibold;
+  font-size: 40rpx;
+  color: #37352F;
+  line-height: 72rpx;
+  margin-bottom: 24rpx;
+}
+.result-number{
+  font-family: PingFangSC-Medium;
+  font-size: 28rpx;
+  color: #999999;
+  line-height: 56rpx;
+}
+.result-list-padding{
+  padding-bottom: 100rpx;
+}
+
+
+.rabish-item{
+  width: 658rpx;
+  height: 564rpx;
+  background: #FFFFFF;
+  border: 2rpx solid #DDDEDD;
+  box-shadow: 0 3rpx 6rpx 0 rgba(0,0,0,0.10);
+  border-radius: 16rpx;
+  overflow:hidden;
+  margin-bottom: 32rpx;
+}
+.rabish-item .item-bottom{
+  padding: 16rpx 20rpx 0;
+}
+.rabish-item .item-img-wrap{
+  position:relative;
+  width:100%;
+  height:370rpx;
+}
+.rabish-item .item-img{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+.rabish-item .item-name-wrap{
+  height: 44rpx;
+  display: flex;
+  justify-content: space-between;
+  vertical-align: center;
+  margin-bottom: 10rpx;
+}
+.rabish-item .item-name-wrap .share-btn{
+  width: 118rpx;
+  height: 48rpx;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+}
+.rabish-item .item-name-wrap .share-btn .item-share{
+  width: 118rpx;
+  height: 48rpx;
+}
+.rabish-item .item-type-icon{
+  width:44rpx;
+  height:44rpx;
+  margin-right: 12rpx;
+}
+.rabish-item .item-name{
+  display: flex;
+  line-height:44rpx;
+}
+.rabish-item .item-name text{
+  font-size: 28rpx;
+  color: #37352F;
+  font-weight: bold;
+}
+
+.rabish-item .item-type{
+  display: inline;
+  padding: 2rpx 16rpx;
+  font-size: 24rpx;
+  color: #37352F;
+  border-radius: 4rpx;
+  font-weight:bold;
+}
+.rabish-item .material-wrap{
+  margin-top: 10rpx;
+}
+.rabish-item .item-material{
+  font-size: 24rpx;
+  padding: 2rpx 16rpx;
+  color: #37352F;
+  font-weight: bold;
+  background-color: #EBEBEB;
+  margin-right: 8rpx;
+  border-radius: 4rpx;
+}
+.empty-page{
+  width: 654rpx;
+}
+
+.empty-img{
+  display: block;
+  width: 217rpx;
+  height: 213rpx;
+  margin: 220rpx auto 180rpx;
+}
+.empty-btn{
+  width: 366rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  background: #37352F;
+  border-radius: 8px;
+  text-align: center;
+  font-family: PingFangSC-Medium;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  margin: 0 auto;
+}

@@ -1,0 +1,65 @@
+<!--index.wxml-->
+
+<view class="page-container">
+  <navigator url="/pages/search/search" class="search-entry">
+    <image class="search-entry-img" src="../../images/icon/entry_search.svg"></image>
+  </navigator>
+  <view class="page-top">
+    <view class="page-title">分类说</view>
+    <scroll-view class="navi" scroll-x="{{true}}" scroll-left="{{tabLeft}}" scroll-with-animation="{{true}}">
+      <view class="navi-wrap">
+        <view class="navi-box">
+          <block wx:for="{{naviList}}" wx:key="{{index}}">
+            <view class="navi-content" bindtap="changeTable" data-num="{{index}}">
+              <view class="{{index === currentPage ? 'navi-name active' : 'navi-name'}}">
+                <image class="navi-icon" src="{{'../../images/icon/'+item.iconUrl}}" wx:if="{{item.iconUrl}}"></image>
+                <text>{{item.name}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <swiper class='page-swiper' current='{{currentPage}}' indicator-dots="{{false}}" autoplay="{{false}}" bindchange="contentChange">
+    <swiper-item wx:for="{{dataList}}" wx:key="{{index}}">
+      <view class='content'>
+        <scroll-view class="item-list" scroll-y="true">
+          <view class="type-num"><view class="bigger-num">{{item.list.length}}</view>种</view>
+          <text class="type-description">{{item.description}}</text>
+          <view class="rabish-list-wrap">
+            <block wx:for="{{item.list}}" wx:key="{{index}}">
+              <view class="rabish-item" bindtap="goToDetail" data-name="{{item.name}}" data-link="{{item.link}}">
+                <view class="item-img-wrap" style="background-color:{{bgConfig[item.type]}}">
+                  <image lazy-load="{{true}}" class="item-img" src="{{item.imgUrl}}" mode="aspectFit"></image>
+                </view>
+                <view class="item-bottom">
+                  <view class="item-name-wrap">
+                    <view class="item-name">
+                      <image wx:if="{{iconConfig[item.type]}}" class="item-type-icon" src="{{'../../images/icon/'+iconConfig[item.type]}}"></image>
+                      <text>{{item.name}}</text>
+                    </view>
+                    <button class="share-btn" catchtap="blankFun" open-type="share" hover-stop-propagation='true' data-item="{{item}}">
+                      <image class="item-share" src="../../images/icon/share.svg"></image>
+                    </button>
+                  </view>
+                  <view>
+                    <view class="item-type" style="background-color:{{bgConfig[item.type]}}">
+                      {{item.type}}
+                    </view>
+                  </view>
+                  
+                  <view class="material-wrap">
+                    <block wx:for="{{item.material}}" wx:key="{{index}}">
+                      <text class="item-material">{{item}}</text>
+                    </block>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </scroll-view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>
