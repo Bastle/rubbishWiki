@@ -36,11 +36,10 @@ Page({
     tabWidthArr: [],
     offsetArr: []
   },
-  onLoad(){
-
-  },
   onReady(){
+    // 获取页面及元素宽度信息
     this.getAllRects();
+    // 获取物品信息
     this.getAllData();
   },
   onShareAppMessage(e){
@@ -48,13 +47,13 @@ Page({
       from,
       target
     } = e;
-    if(from === 'button'){
+    if(from === 'button'){     // 分享单个物品
       return {
         title: `你知道${target.dataset.item.name}的正确分法吗？快看分类说`,
         path: `/pages/detail/detail?name=${target.dataset.item.name}&link=${JSON.stringify(target.dataset.item.link)}`,
         imageUrl: target.dataset.item.shareImgUrl
       }
-    } else if(from === 'menu'){
+    } else if(from === 'menu'){    // 分享小程序
       return {
         title: '垃圾分类就用分类说！',
         path: '/pages/index/index',
@@ -74,16 +73,21 @@ Page({
       return a.num - b.num;
     })
     baseData.map(item => {
+      // 单个导航信息
       let naviObj = {
         name: item.chineseName,
         iconUrl: item.iconUrl
       };
+      // 每个垃圾类目数据
       let dataObj = {
         description: item.description,
         backgroundColor: item.backgroundColor,
         list: (item.englishName === 'all' || item.chineseName === '全部') ? app.globalData.all : item.list
       }
+
+      // icon配置
       iconConfig[item.chineseName] = item.iconUrl;
+      // 不同垃圾类目背景色配置
       bgConfig[item.chineseName] = item.backgroundColor;
       naviList.push(naviObj);
       dataList.push(dataObj);
@@ -97,23 +101,12 @@ Page({
     })
   },
   changeTable(e){
-    let num = e.currentTarget.dataset.num;
-    if (num !== this.data.currentPage){
-      let windowWidth = this.data.windowWidth;
-      let {
-        tabLength,
-        tabWidthArr,
-        offsetArr
-      } = this._data;
-      const MAX = tabLength - windowWidth;
-      this.setData({
-        tabLeft: offsetArr[num] - (windowWidth - tabWidthArr[num])/2 > MAX ? MAX : offsetArr[num] - (windowWidth - tabWidthArr[num])/2,
-        currentPage: num
-      })
-    }
+    this.changeNaviPosition(e.currentTarget.dataset.num);
   },
   contentChange(e){
-    let current = e.detail.current;
+    this.changeNaviPosition(e.detail.current);
+  },
+  changeNaviPosition(current){
     if(current !== this.data.currentPage){
       let windowWidth = this.data.windowWidth;
       let {
@@ -124,13 +117,13 @@ Page({
       const MAX = tabLength - windowWidth;
       this.setData({
         tabLeft: offsetArr[current] - (windowWidth - tabWidthArr[current]) / 2 > MAX ? MAX : offsetArr[current] - (windowWidth - tabWidthArr[current]) / 2,
-        currentPage: e.detail.current
+        currentPage: current
       })
     }
   },
   goToDetail(e){
     wx.navigateTo({
-      url: '../detail/detail?link=' + JSON.stringify(e.currentTarget.dataset.link) + '&name=' + e.currentTarget.dataset.name
+      url: `../detail/detail?link=${JSON.stringify(e.currentTarget.dataset.link)}&name=${e.currentTarget.dataset.name}`
     })
   },
   getAllRects(){

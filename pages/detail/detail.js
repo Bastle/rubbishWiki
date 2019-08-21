@@ -16,14 +16,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
-    if(!options.name) {
-      options = { name: "甘蔗", link: JSON.stringify(["纸盒", "铅笔","本子"])}
-    }
-  
     let detail = {};
     let linkList = [];
-    for (var i = 0, len = app.globalData.all.length; i<len;i++){
+    for (let i = 0, len = app.globalData.all.length; i < len; i++){
       if (app.gobalData.all[i].name === options.name) {
         detail = app.globalData.all[i];
       }
@@ -40,6 +35,7 @@ Page({
     })
     
   },
+  // 分享
   onShareAppMessage(){
     let {
       name,
@@ -55,7 +51,7 @@ Page({
   blankFun(){},
   goToLink(e){
     wx.navigateTo({
-      url: 'detail?link=' + JSON.stringify(e.currentTarget.dataset.link) + '&name=' + e.currentTarget.dataset.name
+      url: `detail?link=${JSON.stringify(e.currentTarget.dataset.link)}&name=${e.currentTarget.dataset.name}`
     })
   }
 })
